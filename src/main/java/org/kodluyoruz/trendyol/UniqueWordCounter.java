@@ -16,7 +16,7 @@ public class UniqueWordCounter {
 
         phrase = phrase.replace(".", "").replace(",", "");
 
-        String[] words = phrase.split(" ");
+        String[] words = phrase.split("\\s+");
 
         HashSet<String> uniqueWords = new HashSet<>();
 
