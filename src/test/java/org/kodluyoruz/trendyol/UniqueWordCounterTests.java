@@ -42,4 +42,16 @@ public class UniqueWordCounterTests {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    public void getUniqueWordCount_WhenInputIsSame2WordsWithUppercase_ShouldReturn1() {
+        // Arrange
+        UniqueWordCounter sut = new UniqueWordCounter();
+
+        // Act
+        int result = sut.getUniqueWordCount("test Test");
+
+        // Assert
+        assertThat(result).isEqualTo(1);
+    }
+
 }
