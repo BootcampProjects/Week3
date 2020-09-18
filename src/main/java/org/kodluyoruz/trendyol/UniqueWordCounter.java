@@ -9,6 +9,11 @@ public class UniqueWordCounter {
         if (Objects.isNull(phrase))
             throw new IllegalArgumentException("Phrase must not be null.");
 
+        phrase = phrase.trim();
+
+        if (phrase.equals(""))
+            return 0;
+
         phrase = phrase.replace(".", "").replace(",", "");
 
         String[] words = phrase.split(" ");

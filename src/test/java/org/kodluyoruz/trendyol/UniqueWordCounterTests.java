@@ -16,7 +16,19 @@ public class UniqueWordCounterTests {
         Throwable throwable = catchThrowable(() -> sut.getUniqueWordCount(null));
 
         // Assert
-        assertThat(throwable ).isInstanceOf(IllegalArgumentException.class).hasMessage("Phrase must not be null.");
+        assertThat(throwable).isInstanceOf(IllegalArgumentException.class).hasMessage("Phrase must not be null.");
+    }
+
+    @Test
+    public void getUniqueWordCount_WhenInputIsEmpty_ShouldReturn0() {
+        // Arrange
+        UniqueWordCounter sut = new UniqueWordCounter();
+
+        // Act
+        int result = sut.getUniqueWordCount("  ");
+
+        // Assert
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
