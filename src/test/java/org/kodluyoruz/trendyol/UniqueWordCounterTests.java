@@ -30,4 +30,16 @@ public class UniqueWordCounterTests {
         assertThat(result).isEqualTo(2);
     }
 
+    @Test
+    public void getUniqueWordCount_WhenInputIsSame2Words_ShouldReturn1() {
+        // Arrange
+        UniqueWordCounter sut = new UniqueWordCounter();
+
+        // Act
+        int result = sut.getUniqueWordCount("test test");
+
+        // Assert
+        assertThat(result).isEqualTo(1);
+    }
+
 }
