@@ -1,11 +1,24 @@
 package org.kodluyoruz.trendyol;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
 public class UniqueWordCounterTests {
+
+    private static Stream<Arguments> provideSameWords() {
+        return Stream.of(
+                Arguments.of("test Test TEST teSt TesT"),
+                Arguments.of("test, Test. TEST teSt, TesT,, tEST."),
+                Arguments.of("unit Unit. UNIT,. uniT UNit... unIT,.,., UniT,,.")
+        );
+    }
 
     @Test
     public void getUniqueWordCount_WhenInputIsNull_ShouldThrowIllegalArgumentException() {
@@ -86,6 +99,19 @@ public class UniqueWordCounterTests {
 
         // Act
         int result = sut.getUniqueWordCount("test, test.");
+
+        // Assert
+        assertThat(result).isEqualTo(1);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideSameWords")
+    public void getUniqueWordCount_WhenInputIsSameWords_ShouldReturn1(String words) {
+        // Arrange
+        UniqueWordCounter sut = new UniqueWordCounter();
+
+        // Act
+        int result = sut.getUniqueWordCount(words);
 
         // Assert
         assertThat(result).isEqualTo(1);
