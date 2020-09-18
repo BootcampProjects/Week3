@@ -1,8 +1,13 @@
 "test Test testt test'", 3
-"test Test teSt te'st, TEST.", 2
+"test Test   teSt te'st, TEST.", 2
 "test Test teSt te'st, TEST. TE'st", 2
 "test Test 3 4 3 testt test'", 5
 "test Test 1 2 1 testt test' te-st", 6
 "test Test 1 2 1 testt test' TesT' te-st. Te-st", 6
 "test Test test tesT", 1
+"", 0
+"         ", 0
 "        ,      .   ", 0
+"test   tesT      TeST", 1
+"test   tesT.    ,,  TeST.", 1
+"test   tesT'      TeS-T", 3
