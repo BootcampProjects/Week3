@@ -3,8 +3,21 @@ package org.kodluyoruz.trendyol;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 
 public class UniqueWordCounterTests {
+
+    @Test
+    public void getUniqueWordCount_WhenInputIsNull_ShouldThrowIllegalArgumentException() {
+        // Arrange
+        UniqueWordCounter sut = new UniqueWordCounter();
+
+        // Act
+        Throwable throwable = catchThrowable(() -> sut.getUniqueWordCount(null));
+
+        // Assert
+        assertThat(throwable ).isInstanceOf(IllegalArgumentException.class).hasMessage("Phrase must not be null.");
+    }
 
     @Test
     public void getUniqueWordCount_WhenInputIsOnly1Word_ShouldReturn1() {
