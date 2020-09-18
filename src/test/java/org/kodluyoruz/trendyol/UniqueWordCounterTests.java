@@ -54,4 +54,16 @@ public class UniqueWordCounterTests {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    public void getUniqueWordCount_WhenInputIsSame2WordsIncludePunctuationWithDotOrComma_ShouldReturn1() {
+        // Arrange
+        UniqueWordCounter sut = new UniqueWordCounter();
+
+        // Act
+        int result = sut.getUniqueWordCount("test, test.");
+
+        // Assert
+        assertThat(result).isEqualTo(1);
+    }
+
 }
