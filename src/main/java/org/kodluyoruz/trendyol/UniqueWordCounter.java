@@ -1,11 +1,10 @@
 package org.kodluyoruz.trendyol;
 
 public class UniqueWordCounter {
-    public int getUniqueWordCount(String words) {
+    public int getUniqueWordCount(String phrase) {
 
-        if (!words.equals(" "))
-            return 1;
+        String[] words = phrase.split(" ");
 
-        return 0;
+        return words.length;
     }
 }

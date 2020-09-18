@@ -18,4 +18,16 @@ public class UniqueWordCounterTests {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    public void getUniqueWordCount_WhenInputIsDifferent2Words_ShouldReturn2() {
+        // Arrange
+        UniqueWordCounter sut = new UniqueWordCounter();
+
+        // Act
+        int result = sut.getUniqueWordCount("test different");
+
+        // Assert
+        assertThat(result).isEqualTo(2);
+    }
+
 }
